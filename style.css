@@ -1,20 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-
-
-    /* importando google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
-body{
-    background:#721c24;
+body {
+    background: url('https://wallpapercave.com/wp/wp4056410.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #FFF;
 }
 
-::selection{
+::selection {
     color: #fff;
     background: #007bff;
 }
@@ -22,7 +25,7 @@ body{
 .start_btn,
 .info_box,
 .quiz_box,
-.result_box{
+.result_box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -33,28 +36,38 @@ body{
 
 .info_box.activeInfo,
 .quiz_box.activeQuiz,
-.result_box.activeResult{
+.result_box.activeResult {
     opacity: 1;
     z-index: 5;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
 
-.start_btn button{
+.start_btn button {
     font-size: 25px;
     font-weight: 500;
-    color: #007bff;
+    color: #FFF;
     padding: 15px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
-    background: #fff;
+    background: #1E90FF;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.info_box{
+.start_btn button:hover {
+    background: #4682B4;
+}
+
+.start_btn button:active {
+    box-shadow: 0 3px #2E7D34;
+    transform: translateY(2px);
+}
+
+.info_box {
     width: 540px;
-    background: white;
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
     opacity: 0;
@@ -62,10 +75,10 @@ body{
     transition: all 0.3s ease;
 }
 
-.info_box .info-title{
+.info_box .info-title {
     height: 60px;
     width: 100%;
-    border-bottom: 1px solid darkcyan;
+    border-bottom: 1px solid #00BFFF;
     display: flex;
     align-items: center;
     padding: 0 30px;
@@ -74,29 +87,30 @@ body{
     font-weight: 600;
 }
 
-.info_box .info-list{
+.info_box .info-list {
     padding: 15px 30px;
 }
 
-.info_box .info-list .info{
+.info_box .info-list .info {
     margin: 5px 0;
     font-size: 17px;
 }
 
-.info_box .info-list .info span{
+.info_box .info-list .info span {
     font-weight: 600;
-    color: #007bff;
+    color: red;
 }
-.info_box .buttons{
+
+.info_box .buttons {
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 0 30px;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid #00BFFF;
 }
 
-.info_box .buttons button{
+.info_box .buttons button {
     margin: 0 5px;
     height: 60px;
     width: 150px;
@@ -106,13 +120,23 @@ body{
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #007bff;
+    border: 1px solid #1E90FF;
     transition: all 0.3s ease;
 }
 
-.quiz_box{
+.info_box .buttons .quit {
+    background-color: #FF4500;
+    color: white;
+}
+
+.info_box .buttons .restart {
+    background-color: #1E90FF;
+    color: white;
+}
+
+.quiz_box {
     width: 550px;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
     opacity: 0;
@@ -120,12 +144,12 @@ body{
     transition: all 0.3s ease;
 }
 
-.quiz_box header{
+.quiz_box header {
     position: relative;
     z-index: 2;
     height: 70px;
     padding: 0 30px;
-    background: #fff;
+    background: #00BFFF;
     border-radius: 5px 5px 0 0;
     display: flex;
     align-items: center;
@@ -133,15 +157,15 @@ body{
     box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
 }
 
-.quiz_box header .title{
+.quiz_box header .title {
     font-size: 20px;
     font-weight: 600;
+    color: #FFF;
 }
 
-.quiz_box header .timer{
-    color: #004085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
+.quiz_box header .timer {
+    color: #FFF;
+    background: #1E90FF;
     height: 45px;
     padding: 0 8px;
     border-radius: 5px;
@@ -151,52 +175,51 @@ body{
     width: 145px;
 }
 
-.quiz_box header .timer .time_left_txt{
+.quiz_box header .timer .time_left_txt {
     font-weight: 400;
     font-size: 17px;
     user-select: none;
 }
 
-.quiz_box header .timer .timer_sec{
+.quiz_box header .timer .timer_sec {
     font-size: 18px;
     font-weight: 500;
     height: 30px;
     width: 45px;
-    color: #fff;
+    color: #FFF;
     border-radius: 5px;
     line-height: 30px;
     text-align: center;
-    background: #343a40;
-    border: 1px solid #343a40;
+    background: #000;
     user-select: none;
 }
 
-.quiz_box header .time_line{
+.quiz_box header .time_line {
     position: absolute;
     bottom: 0px;
     left: 0px;
     height: 3px;
-    background: #007bff;
+    background: #00BFFF;
 }
 
-section{
+section {
     padding: 25px 30px 20px 30px;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.8);
 }
 
-section .que_text{
+section .que_text {
     font-size: 25px;
     font-weight: 600;
 }
 
-section .option_list{
+section .option_list {
     padding: 20px 0px;
-    display: block;   
+    display: block;
 }
 
-section .option_list .option{
-    background: aliceblue;
-    border: 1px solid #84c5fe;
+section .option_list .option {
+    background: rgba(30, 144, 255, 0.3);
+    border: 1px solid #00BFFF;
     border-radius: 5px;
     padding: 8px 15px;
     font-size: 17px;
@@ -208,33 +231,33 @@ section .option_list .option{
     justify-content: space-between;
 }
 
-section .option_list .option:last-child{
+section .option_list .option:last-child {
     margin-bottom: 0px;
 }
 
-section .option_list .option:hover{
-    color: #004085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
+section .option_list .option:hover {
+    color: #000;
+    background: #1E90FF;
+    border: 1px solid #00BFFF;
 }
 
-section .option_list .option.correct{
-    color: #155724;
+section .option_list .option.correct {
+    color: #23903c;
     background: #d4edda;
     border: 1px solid #c3e6cb;
 }
 
-section .option_list .option.incorrect{
+section .option_list .option.incorrect {
     color: #721c24;
     background: #f8d7da;
     border: 1px solid #f5c6cb;
 }
 
-section .option_list .option.disabled{
+section .option_list .option.disabled {
     pointer-events: none;
 }
 
-section .option_list .option .icon{
+section .option_list .option .icon {
     height: 26px;
     width: 26px;
     border: 2px solid transparent;
@@ -245,42 +268,45 @@ section .option_list .option .icon{
     transition: all 0.3s ease;
     line-height: 24px;
 }
-.option_list .option .icon.tick{
+
+.option_list .option .icon.tick {
     color: #23903c;
     border-color: #23903c;
     background: #d4edda;
 }
 
-.option_list .option .icon.cross{
+.option_list .option .icon.cross {
     color: #a42834;
     background: #f8d7da;
     border-color: #a42834;
 }
 
-footer{
+footer {
     height: 60px;
     padding: 0 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid #00BFFF;
+    background: rgba(0, 0, 0, 0.8);
 }
 
-footer .total_que span{
+footer .total_que span {
     display: flex;
     user-select: none;
+    color: #FFF;
 }
 
-footer .total_que span p{
+footer .total_que span p {
     font-weight: 500;
     padding: 0 5px;
 }
 
-footer .total_que span p:first-child{
+footer .total_que span p:first-child {
     padding-left: 0px;
 }
 
-footer button{
+footer button {
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -288,10 +314,9 @@ footer button{
     cursor: pointer;
     border: none;
     outline: none;
-    color: #fff;
+    color: #FFF;
     border-radius: 5px;
-    background: #007bff;
-    border: 1px solid #007bff;
+    background: #1E90FF;
     line-height: 10px;
     opacity: 0;
     pointer-events: none;
@@ -299,18 +324,18 @@ footer button{
     transition: all 0.3s ease;
 }
 
-footer button:hover{
-    background: #0263ca;
+footer button:hover {
+    background: #4682B4;
 }
 
-footer button.show{
+footer button.show {
     opacity: 1;
     pointer-events: auto;
     transform: scale(1);
 }
 
-.result_box{
-    background: #fff;
+.result_box {
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 5px;
     display: flex;
     padding: 25px 30px;
@@ -324,35 +349,35 @@ footer button.show{
     transition: all 0.3s ease;
 }
 
-.result_box .icon{
+.result_box .icon {
     font-size: 100px;
-    color: #007bff;
+    color: #1E90FF;
     margin-bottom: 10px;
 }
 
-.result_box .complete_text{
+.result_box .complete_text {
     font-size: 20px;
     font-weight: 500;
 }
 
-.result_box .score_text span{
+.result_box .score_text span {
     display: flex;
     margin: 10px 0;
     font-size: 18px;
     font-weight: 500;
 }
 
-.result_box .score_text span p{
+.result_box .score_text span p {
     padding: 0 4px;
     font-weight: 600;
 }
 
-.result_box .buttons{
+.result_box .buttons {
     display: flex;
     margin: 20px 0;
 }
 
-.result_box .buttons button{
+.result_box .buttons button {
     margin: 0 10px;
     height: 60px;
     padding: 0 20px;
@@ -362,36 +387,30 @@ footer button.show{
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #007bff;
+    border: 1px solid #1E90FF;
     transition: all 0.3s ease;
 }
 
-.buttons button.restart{
+.buttons button.restart {
     color: #fff;
-    background: #007bff;
+    background: #1E90FF;
 }
 
-.buttons button.restart:hover{
-    background: #0263ca;
+.buttons button.restart:hover {
+    background: #4682B4;
 }
 
-.buttons button.quit{
-    color: #007bff;
+.buttons button.quit {
+    color: #1E90FF;
     background: #fff;
 }
 
-.buttons button.quit:hover{
+.buttons button.quit:hover {
     color: #fff;
-    background: #007bff;
+    background: #1E90FF;
 }
 
 .avatar {
     width:70%;
-    
     margin-left: 65px;
-   
-  
-
-
-
 }
